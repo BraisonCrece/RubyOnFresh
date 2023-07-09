@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
+require "fresh/dependencies"
 require "fresh/version"
-require_relative "fresh/routing"
+require "fresh/routing"
+require "fresh/util"
 require "fresh/array"
 require "json"
 
