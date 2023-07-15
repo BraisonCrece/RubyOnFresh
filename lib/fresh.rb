@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 require "fresh/dependencies"
+require "fresh/controller"
 require "fresh/version"
 require "fresh/routing"
-require "fresh/util"
 require "fresh/array"
+require "fresh/util"
 require "json"
 
 module Fresh
@@ -46,7 +47,7 @@ module Fresh
         # status code
         200,
         # Headers
-        {"Content-Type" => "application/json"},
+        {"Content-Type" => "text/html"},
         # Content
         [text]
       ]
