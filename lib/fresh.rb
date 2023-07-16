@@ -2,8 +2,9 @@
 
 require "fresh/dependencies"
 require "fresh/controller"
-require "fresh/version"
+require "fresh/file_model"
 require "fresh/routing"
+require "fresh/version"
 require "fresh/array"
 require "fresh/util"
 require "json"
