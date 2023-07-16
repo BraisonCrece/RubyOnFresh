@@ -1,6 +1,15 @@
 require_relative "test_helper"
 
+class TestController < Fresh::Controller
+  def index
+    "Hello!" # Not rendering a view
+  end
+end
+
 class TestApp < Fresh::Application
+  def get_controller_and_action(env)
+    [TestController, "index"]
+  end
 end
 
 class FreshAppTest < Minitest::Test
@@ -11,7 +20,7 @@ class FreshAppTest < Minitest::Test
   end
 
   def test_request
-    get "/"
+    get "/example/route"
 
     assert last_response.ok?
     body = last_response.body

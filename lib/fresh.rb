@@ -9,6 +9,10 @@ require "fresh/util"
 require "json"
 
 module Fresh
+  def self.framework_root
+    __dir__
+  end
+
   class Error < StandardError; end
 
   class Application
