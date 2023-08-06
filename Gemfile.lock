@@ -1,7 +1,8 @@
 PATH
   remote: .
   specs:
-    fresh (0.0.2)
+    fresh (0.0.3)
+      debug
       erubis
       multi_json
       rack (= 2.2.4)
@@ -12,7 +13,13 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.2)
+    debug (1.8.0)
+      irb (>= 1.5.0)
+      reline (>= 0.3.1)
     erubis (2.7.0)
+    io-console (0.6.0)
+    irb (1.7.4)
+      reline (>= 0.3.6)
     json (2.6.3)
     language_server-protocol (3.17.0.3)
     multi_json (1.15.0)
@@ -27,6 +34,8 @@ GEM
     rainbow (3.1.1)
     rake (13.0.6)
     regexp_parser (2.8.1)
+    reline (0.3.7)
+      io-console (~> 0.5)
     rexml (3.2.5)
     rubocop (1.54.2)
       json (~> 2.3)

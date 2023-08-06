@@ -1,4 +1,5 @@
 require "multi_json"
+
 module Fresh
   module Model
     class FileModel
@@ -20,9 +21,35 @@ module Fresh
       end
 
       def self.find(id)
-        FileModel.new("db/quotes/#{id}.json")
+        new("db/quotes/#{id}.json")
       rescue
         nil
+      end
+
+      def self.all
+        files = Dir["db/quotes/*.json"]
+        files.map { |f| FileModel.new f }
+      end
+
+      def self.create(attrs)
+        hash = {}
+        hash["submitter"] = attrs["submitter"] || ""
+        hash["quote"] = attrs["quote"] || ""
+        hash["attribution"] = attrs["attribution"] || ""
+        files = Dir["db/quotes/*.json"]
+        names = files.map { |f| File.split(f)[-1] }
+        highest = names.map { |b| b.to_i }.max
+        id = highest + 1
+        File.open("db/quotes/#{id}.json", "w") do |f|
+          f.write <<-TEMPLATE
+        {
+          "submitter": "#{hash["submitter"]}",
+          "quote": "#{hash["quote"]}",
+          "attribution": "#{hash["attribution"]}"
+        }
+        TEMPLATE
+        end
+        FileModel.new "db/quotes/#{id}.json"
       end
     end
   end

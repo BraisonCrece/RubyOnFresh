@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
+require "fresh/file_model"
 require "fresh/dependencies"
 require "fresh/controller"
-require "fresh/file_model"
 require "fresh/routing"
 require "fresh/version"
 require "fresh/array"
